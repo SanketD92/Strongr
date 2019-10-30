@@ -1,5 +1,7 @@
 {
   "name": "Strongr",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
