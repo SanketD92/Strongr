@@ -8,10 +8,10 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { RestComponent } from './rest/rest.component';
-import { WorkoutComponent } from './workout/workout.component';
-import { SettingsComponent } from './settings/settings.component';
-import { ProgressComponent } from './progress/progress.component';
+import { RestComponent } from '../pages/rest/rest.component';
+import { WorkoutComponent } from '../pages/workout/workout.component';
+import { SettingsComponent } from '../pages/settings/settings.component';
+import { ProgressComponent } from '../pages/progress/progress.component';
 
 @NgModule({
    declarations: [
