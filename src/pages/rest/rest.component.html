@@ -1,3 +1,22 @@
-<p>
-  rest works!
-</p>
+<ion-header>
+    <ion-toolbar>
+      <ion-title>
+        Rest
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+<ion-content padding>
+
+  <circle-progress
+    [percent]="85"
+    [radius]="100"
+    [outerStrokeWidth]="16"
+    [innerStrokeWidth]="8"
+    [outerStrokeColor]="'#78C000'"
+    [innerStrokeColor]="'#C7E596'"
+    [animation]="true"
+    [animationDuration]="300"
+  ></circle-progress>
+
+</ion-content>
