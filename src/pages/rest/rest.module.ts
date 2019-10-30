@@ -4,7 +4,7 @@ import { RestComponent } from './rest.component';
 import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
-import { NgCircleProgressModule } from 'ng-circle-progress';
+//import { NgCircleProgressModule } from 'ng-circle-progress';
 
 @NgModule({
   imports: [
@@ -17,6 +17,7 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
         component: RestComponent
       }
     ]),
+    /*
     NgCircleProgressModule.forRoot({
       // set defaults here
       radius: 100,
@@ -29,6 +30,7 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
       responsive: true,
       renderOnClick: false
     })
+    */
   ],
   declarations: [RestComponent]
 })
