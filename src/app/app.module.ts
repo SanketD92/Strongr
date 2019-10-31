@@ -9,17 +9,11 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { RestComponent } from '../pages/rest/rest.component';
-import { WorkoutComponent } from '../pages/workout/workout.component';
-import { SettingsComponent } from '../pages/settings/settings.component';
-import { ProgressComponent } from '../pages/progress/progress.component';
 
 @NgModule({
    declarations: [
       AppComponent,
       RestComponent,
-      WorkoutComponent,
-      SettingsComponent,
-      ProgressComponent
    ],
    entryComponents: [],
    imports: [
