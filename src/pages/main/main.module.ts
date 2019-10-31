@@ -16,4 +16,4 @@ import { MainPage } from './main.page';
   ],
   declarations: [MainPage]
 })
-export class TabsPageModule {}
+export class MainPageModule {}
