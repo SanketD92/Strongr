@@ -39,14 +39,14 @@ const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: '/main/workout',
+        redirectTo: '../main/workout/workout',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/main/workout',
+    redirectTo: '../main/workout/workout',
     pathMatch: 'full'
   }
 ];
