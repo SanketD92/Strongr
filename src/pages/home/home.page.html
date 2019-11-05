@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header class="ion-header">
   <ion-toolbar>
     <ion-title>
       Home
@@ -7,6 +7,9 @@
 </ion-header>
 
 <ion-content class="ion-padding">
+  <ion-input placeholder="Username or Email" ></ion-input>
+  <ion-input placeholder="Password"></ion-input>
+  <ion-button *ngIf="!afAuth.auth.currentUser" (click)="signIn()">Sign In</ion-button>
   <firebase-ui></firebase-ui>
 
   <h1 *ngIf ="afAuth.auth.currentUser">Welcome {{afAuth.auth.currentUser.displayName}}</h1>

@@ -19,7 +19,6 @@ import {AngularFireAuthModule} from '@angular/fire/auth';
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
   signInFlow: 'popup',
   signInOptions: [
-    firebase.auth.GoogleAuthProvider.PROVIDER_ID,
     {
       scopes: [
         'public_profile',
@@ -32,11 +31,6 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
       },
       provider: firebase.auth.FacebookAuthProvider.PROVIDER_ID
     },
-    firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-    {
-      requireDisplayName: true,
-      provider: firebase.auth.EmailAuthProvider.PROVIDER_ID
-    }
   ],
   tosUrl: '/terms',
   privacyPolicyUrl: '/privacy',
