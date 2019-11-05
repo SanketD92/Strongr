@@ -4,12 +4,15 @@ import { SignupComponent } from './signup.component';
 import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
+import { FirebaseUIModule } from 'firebaseui-angular';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    FirebaseUIModule,
     RouterModule.forChild([
       {
         path: '',
@@ -19,4 +22,12 @@ import { FormsModule } from '@angular/forms';
   ],
   declarations: [SignupComponent]
 })
-export class SignupModule { }
+export class SignupModule { 
+  constructor(public afAuth: AngularFireAuth) {}
+
+  signOut() {
+    this.afAuth.auth.signOut().then(() => {
+      location.reload();
+    });
+  }
+}
