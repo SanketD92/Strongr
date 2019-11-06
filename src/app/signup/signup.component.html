@@ -1,5 +1,8 @@
 <ion-header>
   <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/"></ion-back-button>
+      </ion-buttons>
     <ion-title>
       Signup
     </ion-title>
@@ -12,7 +15,4 @@
     <ion-input placeholder="Confirm Password"></ion-input>
     <ion-button (click)="signUp()">Sign Up</ion-button>
     <firebase-ui></firebase-ui>
-  
-    <h1 *ngIf ="afAuth.auth.currentUser">Welcome {{afAuth.auth.currentUser.displayName}}</h1>
-    <ion-button *ngIf="afAuth.auth.currentUser" (click)="signOut()">Sign Out</ion-button>
   </ion-content>
