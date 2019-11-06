@@ -10,9 +10,9 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-    <ion-input placeholder="Username or Email" ></ion-input>
-    <ion-input placeholder="Password"></ion-input>
-    <ion-input placeholder="Confirm Password"></ion-input>
+    <ion-input placeholder="Username or Email" [(ngModel)]="Username"></ion-input>
+    <ion-input placeholder="Password" [(ngModel)]="Password"></ion-input>
+    <ion-input placeholder="Confirm Password" [(ngModel)]="ConfirmPassword"></ion-input>
     <ion-button (click)="signUp()">Sign Up</ion-button>
     <firebase-ui></firebase-ui>
   </ion-content>

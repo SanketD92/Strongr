@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-workout',
@@ -7,6 +8,6 @@ import { Component } from '@angular/core';
 })
 export class WorkoutPage {
 
-  constructor() {}
+  constructor(public afAuth: AngularFireAuth) {}
 
 }

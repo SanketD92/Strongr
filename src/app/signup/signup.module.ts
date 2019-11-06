@@ -22,6 +22,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
   ],
   declarations: [SignupComponent]
 })
+
 export class SignupModule { 
   constructor(public afAuth: AngularFireAuth) {}
 
@@ -30,4 +31,5 @@ export class SignupModule {
       location.reload();
     });
   }
+
 }

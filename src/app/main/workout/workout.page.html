@@ -4,6 +4,7 @@
         <ion-card-title>Workout</ion-card-title>
       </ion-card-header>
     </ion-card>
+    <h1 *ngIf ="afAuth.auth.currentUser">Welcome {{afAuth.auth.currentUser.displayName}}</h1>
     <ion-list lines="none">
       <ion-list-header>
         <ion-label>Resources</ion-label>

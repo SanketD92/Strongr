@@ -1,11 +1,3 @@
-<ion-header>
-    <ion-toolbar>
-      <ion-title>
-        Settings
-      </ion-title>
-    </ion-toolbar>
-  </ion-header>
-
 <ion-content>
     <ion-card class="Settings">
       <ion-card-header>
@@ -33,4 +25,5 @@
         <ion-label>Theme Your App</ion-label>
       </ion-item>
     </ion-list>
+    <ion-button *ngIf="afAuth.auth.currentUser" (click)="signOut()">Sign Out</ion-button>
 </ion-content>

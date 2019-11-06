@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -6,10 +8,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-
-  constructor() { }
+  Username;
+  Password;
+  ConfirmPassword;
+  constructor(public afAuth: AngularFireAuth,  private router: Router) { }
 
   ngOnInit() {
+  }
+
+  signUp() {
+      this.afAuth.auth.createUserWithEmailAndPassword(this.Username,this.Password).then(() => {
+      this.router.navigate(["/main"]);
+    });
   }
 
 }

@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit {
     try{
       const user = await this.afAuth.auth.signInWithEmailAndPassword(this.Username, this.Password);
       console.log(user);
+      this.router.navigate(["/main"]);
     }
     catch{
       this.router.navigate(["/signup"]);
