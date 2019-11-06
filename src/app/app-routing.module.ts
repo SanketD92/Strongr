@@ -8,7 +8,7 @@ const routes: Routes = [
   { path: 'signup', loadChildren: () => import('./signup/signup.module').then( m => m.SignupModule)},
   { path: 'terms', loadChildren: './terms/terms.module#TermsPageModule' },
   { path: 'privacy', loadChildren: './privacy/privacy.module#PrivacyPageModule' },
-  { path: 'main', loadChildren: './main/main.module#MainPageModule', canActivate: [AuthGuard]}
+  { path: 'main', loadChildren: () => import('./main/main.module').then(m => m.MainPageModule), canActivate:[AuthGuard]}
 ];
 
 @NgModule({
