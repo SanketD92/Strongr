@@ -7,9 +7,12 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import {environment} from '../environments/environment';
 
+import { IonicStorageModule } from '@ionic/storage';
+import { HttpClientModule } from '@angular/common/http';
+
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { RestComponent } from '../pages/rest/rest.component';
+import { RestComponent } from './rest/rest.component';
 
 import {FirebaseUIModule, firebase, firebaseui} from 'firebaseui-angular';
 
@@ -49,7 +52,9 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
       AppRoutingModule,
       AngularFireModule.initializeApp(environment.firebase),
       AngularFireAuthModule,
-      FirebaseUIModule.forRoot(firebaseUiAuthConfig)
+      FirebaseUIModule.forRoot(firebaseUiAuthConfig),
+      IonicStorageModule.forRoot(),
+      HttpClientModule
    ],
    providers: [
       StatusBar,

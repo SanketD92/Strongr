@@ -4,7 +4,12 @@ import { MainPage } from './main.page';
 
 const routes: Routes = [
   {
-    path: 'main',
+    path: '',
+    redirectTo: '/main/workout',
+    pathMatch: 'full'
+  },
+  {
+    path: '',
     component: MainPage,
     children: [
       {
@@ -13,7 +18,7 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: () =>
-              import('../main/progress/progress.module').then(m => m.ProgressPageModule)
+              import('./progress/progress.module').then(m => m.ProgressPageModule)
           }
         ]
       },
@@ -23,7 +28,7 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: () =>
-              import('../main/workout/workout.module').then(m => m.WorkoutPageModule)
+              import('./workout/workout.module').then(m => m.WorkoutPageModule)
           }
         ]
       },
@@ -33,21 +38,11 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: () =>
-              import('../main/settings/settings.module').then(m => m.SettingsPageModule)
+              import('./settings/settings.module').then(m => m.SettingsPageModule)
           }
         ]
-      },
-      {
-        path: '',
-        redirectTo: '../main/workout/workout',
-        pathMatch: 'full'
       }
     ]
-  },
-  {
-    path: '',
-    redirectTo: '../main/workout/workout',
-    pathMatch: 'full'
   }
 ];
 
