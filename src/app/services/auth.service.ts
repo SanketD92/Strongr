@@ -6,6 +6,7 @@ import { take, map, switchMap } from 'rxjs/operators';
 import { JwtHelperService } from "@auth0/angular-jwt";
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { AngularFireAuth } from '@angular/fire/auth';
  
 const helper = new JwtHelperService();
 const TOKEN_KEY = 'jwt-token';
@@ -17,7 +18,7 @@ export class AuthService {
   public user: Observable<any>;
   private userData = new BehaviorSubject(null);
  
-  constructor(private storage: Storage, private http: HttpClient, private plt: Platform, private router: Router) { 
+  constructor(private storage: Storage, private http: HttpClient, private plt: Platform, private router: Router, private afAuth: AngularFireAuth) { 
     this.loadStoredToken();  
   }
  
@@ -40,9 +41,11 @@ export class AuthService {
     );
   }
  
-  login(credentials: {email: string, pw: string }) {
+  async login(credentials: {email: string, pw: string }) {
+    const user = await this.afAuth.auth.signInWithEmailAndPassword(credentials.email, credentials.pw);
+    console.log(user);
     // Normally make a POST request to your APi with your login credentials
-    if (credentials.email != 'test@devdactic.com' || credentials.pw != '123') {
+    if (!user) {
       return of(null);
     }
  
