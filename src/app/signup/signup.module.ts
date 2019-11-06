@@ -5,7 +5,6 @@ import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { FirebaseUIModule } from 'firebaseui-angular';
-import { AngularFireAuth } from '@angular/fire/auth';
 
 @NgModule({
   imports: [
@@ -24,12 +23,6 @@ import { AngularFireAuth } from '@angular/fire/auth';
 })
 
 export class SignupModule { 
-  constructor(public afAuth: AngularFireAuth) {}
-
-  signOut() {
-    this.afAuth.auth.signOut().then(() => {
-      location.reload();
-    });
-  }
+  constructor() {}
 
 }
