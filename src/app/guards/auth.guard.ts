@@ -1,18 +1,18 @@
-import { AuthService } from './../services/auth.service';
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { take, map } from 'rxjs/operators';
 import { AlertController } from '@ionic/angular';
+import { AngularFireAuth } from '@angular/fire/auth';
  
 @Injectable({
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate{
-  constructor(private router: Router, private auth: AuthService, private alertCtrl: AlertController) { }
+  constructor(private router: Router,private afAuth: AngularFireAuth, private alertCtrl: AlertController) { }
  
   canActivate(route: ActivatedRouteSnapshot): Observable<boolean> {
-    return this.auth.user.pipe(
+    return this.afAuth.user.pipe(
       take(1),
       map(user => {
         if (!user) {
@@ -24,7 +24,9 @@ export class AuthGuard implements CanActivate{
  
           this.router.navigateByUrl('/');
           return false;
-        } else {
+        } 
+        else {
+          console.log(user);
           return true;
         }
       })
