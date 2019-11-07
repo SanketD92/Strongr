@@ -10,7 +10,6 @@ import { Router } from '@angular/router';
 export class SignupComponent implements OnInit {
   Username;
   Password;
-  ConfirmPassword;
   constructor(public afAuth: AngularFireAuth,  private router: Router) { }
 
   ngOnInit() {

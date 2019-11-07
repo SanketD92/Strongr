@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
-import { EmailValidator } from '@angular/forms';
-import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +14,7 @@ export class LoginComponent implements OnInit {
     email: this.Username,
     pw: this.Password
   }
-  constructor(private router: Router, private auth: AuthService) { }
+  constructor(private router: Router, private afAuth: AngularFireAuth) { }
 
   ngOnInit() {
   }
@@ -25,16 +23,20 @@ export class LoginComponent implements OnInit {
     try{
       this.credentials.email = this.Username;
       this.credentials.pw = this.Password;
-      (await this.auth.login(this.credentials)).subscribe(async res => {
-        if (res) {
-          this.router.navigate(["/main"]);
-        }
-        else{
-          console.log("Failed");
-        }
-      })
+      var user = await this.afAuth.auth.signInWithEmailAndPassword(this.Username, this.Password);
+      
+      console.log(user);
+      // Normally make a POST request to your APi with your login credentials
+      if (!user) {
+        console.log("Login Failed");
+        this.router.navigate(["/signup"]);
+      }
+      else{
+        this.router.navigate(["/main"]);
+      }
     }
-    catch{
+    catch(e){
+      console.log(e);
       this.router.navigate(["/signup"]);
     }
     
