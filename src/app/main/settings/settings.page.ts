@@ -14,9 +14,7 @@ import { ToastController } from '@ionic/angular';
 export class SettingsPage implements OnInit{
   
   tgl;
-  currentSettings: UserSettings = {
-    toggle: this.tgl
-  };
+  currentSettings: UserSettings;
   
   constructor(public afAuth: AngularFireAuth, private router: Router, 
     private toastCtrl: ToastController, private settingsService: SettingsService) {}
