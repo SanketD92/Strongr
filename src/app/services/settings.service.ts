@@ -37,9 +37,9 @@ export class SettingsService {
     );
   }
 
-  addUserSettings(id: string, userSettings: UserSettings): Promise<void> {
-    return this.settingsCollection.doc(id).set(userSettings);
-    //return this.settingsCollection.add(userSettings);
+  addUserSettings(id: string, userSettings: UserSettings): Promise<DocumentReference> {
+    //return this.settingsCollection.doc(id).set(userSettings);
+    return this.settingsCollection.add(userSettings);
   }
  
   updateUserSettings(id: string, userSettings: UserSettings): Promise<void> {
