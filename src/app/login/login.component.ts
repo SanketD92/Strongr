@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
     email: this.Username,
     pw: this.Password
   }
-  constructor(private router: Router, private afAuth: AngularFireAuth) { }
+  constructor(private router: Router, private toastCtrl: ToastController, private afAuth: AngularFireAuth) { }
 
   ngOnInit() {
   }
@@ -23,12 +24,14 @@ export class LoginComponent implements OnInit {
     try{
       this.credentials.email = this.Username;
       this.credentials.pw = this.Password;
+
+      // Check if email exists, if not redirect to signup [TODO]
+
+      // Exception if wrong password, validation needed for password and appropriate message [TODO]
       var user = await this.afAuth.auth.signInWithEmailAndPassword(this.Username, this.Password);
       
-      console.log(user);
-      // Normally make a POST request to your APi with your login credentials
       if (!user) {
-        console.log("Login Failed");
+        this.showToast('Username or Password was wrong.');
         this.router.navigate(["/signup"]);
       }
       else{
@@ -37,8 +40,15 @@ export class LoginComponent implements OnInit {
     }
     catch(e){
       console.log(e);
+      this.showToast('Username or Password was wrong.');
       this.router.navigate(["/signup"]);
-    }
-    
+    }    
+  }
+
+  showToast(msg) {
+    this.toastCtrl.create({
+      message: msg,
+      duration: 2000
+    }).then(toast => toast.present());
   }
 }
