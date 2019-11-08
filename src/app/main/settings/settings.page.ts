@@ -13,7 +13,8 @@ import { ToastController } from '@ionic/angular';
 })
 export class SettingsPage implements OnInit{
   
-  tgl;
+  GymAccess;
+
   currentSettings: UserSettings;
   
   constructor(public afAuth: AngularFireAuth, private router: Router, 
@@ -22,13 +23,21 @@ export class SettingsPage implements OnInit{
   ngOnInit() {
     this.settingsService.getUserSettings(this.afAuth.auth.currentUser.email).subscribe(setting => {
       this.currentSettings = setting,
-      this.tgl = setting.toggle
+      this.GymAccess = setting.GymAccess
     });
   }
   
   saveChanges(){
     this.currentSettings = {
-      toggle: this.tgl
+      GymAccess: this.GymAccess,
+      Username: "SampleUsername",
+      BodyShape: 2,
+      BodyType: 1, // Could be a selection - like Athletic, Skinny etc. to further determine body fat, muscle density
+      Goal: 1,
+      Weight: 75,
+      WeightUnits: 1,
+      Height: 5,
+      HeightUnits: 1
     }
     
     this.settingsService.setUserSettings(this.afAuth.auth.currentUser.email, this.currentSettings).then(() => {

@@ -4,7 +4,16 @@ import { map, take } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
 export interface UserSettings {
-  toggle: boolean
+  Username: string,
+  BodyShape: number,
+  BodyType: number, // Could be a selection - like Athletic, Skinny etc. to further determine body fat, muscle density
+  GymAccess: boolean,
+  Goal: number,
+  Weight: number,
+  WeightUnits: number,
+  Height: number,
+  HeightUnits: number,
+  
 }
 
 @Injectable({
