@@ -4,9 +4,9 @@
         <ion-card-title>Settings</ion-card-title>
       </ion-card-header>
     </ion-card>
-
-    <ion-toggle [(ngModel)]="tgl"> Toggle</ion-toggle>
-
+    <ion-card>
+    <ion-toggle [(ngModel)]="tgl">Toggle</ion-toggle>
+    </ion-card>
     <ion-button (click)="saveChanges()">Save Changes</ion-button>
 
     <ion-button *ngIf="afAuth.auth.currentUser" (click)="signOut()">Sign Out</ion-button>

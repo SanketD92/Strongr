@@ -22,7 +22,7 @@ export class SettingsPage implements OnInit{
     private toastCtrl: ToastController, private settingsService: SettingsService) {}
 
   ngOnInit() {
-    this.settingsService.getUserSettings('DKBAo3gs6Za4QQ8nOqBv').subscribe(setting => {
+    this.settingsService.getUserSettings('changeThisToDocumentID').subscribe(setting => {
       this.currentSettings = setting
     });
     this.tgl = this.currentSettings.toggle;
