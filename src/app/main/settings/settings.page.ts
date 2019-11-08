@@ -9,7 +9,7 @@ import { AngularFireModule, FirebaseApp } from '@angular/fire';
   styleUrls: ['settings.page.scss']
 })
 export class SettingsPage implements OnInit{
-  Tgl;
+  
 
   constructor(public afAuth: AngularFireAuth, private router: Router, private fa: FirebaseApp) {}
 
