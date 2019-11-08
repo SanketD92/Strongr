@@ -22,19 +22,21 @@ export class SettingsPage implements OnInit{
     private toastCtrl: ToastController, private settingsService: SettingsService) {}
 
   ngOnInit() {
-    this.settingsService.getUserSettings('changeThisToDocumentID').subscribe(setting => {
-      this.currentSettings = setting
+    this.settingsService.getUserSettings(this.afAuth.auth.currentUser.email).subscribe(setting => {
+      this.currentSettings = setting,
+      this.tgl = setting.toggle
     });
-    this.tgl = this.currentSettings.toggle;
   }
   
   saveChanges(){
-    this.currentSettings.toggle = this.tgl;
+    this.currentSettings = {
+      toggle: this.tgl
+    }
     
-    this.settingsService.addUserSettings(this.afAuth.auth.currentUser.email, this.currentSettings).then(() => {
+    this.settingsService.setUserSettings(this.afAuth.auth.currentUser.email, this.currentSettings).then(() => {
       this.showToast('Settings added');
     }, err => {
-      this.showToast('There was a problem adding your settings :(');
+      this.showToast('There was a problem adding your settings. Please try later');
     });
   }
 

@@ -31,19 +31,18 @@ export class SettingsService {
     return this.settingsCollection.doc<UserSettings>(id).valueChanges().pipe(
       take(1),
       map(userSettings => {
-        //userSettings.id = id;
         return userSettings
       })
     );
   }
 
-  addUserSettings(id: string, userSettings: UserSettings): Promise<DocumentReference> {
-    //return this.settingsCollection.doc(id).set(userSettings);
-    return this.settingsCollection.add(userSettings);
+  setUserSettings(id: string, userSettings: UserSettings): Promise<void> {
+    return this.settingsCollection.doc(id).set(userSettings);
   }
  
+  /* Not used yet. doc.set overwrites data anyways
   updateUserSettings(id: string, userSettings: UserSettings): Promise<void> {
     return this.settingsCollection.doc(id).update({ toggle: userSettings.toggle });
   }
-
+  */
 }
