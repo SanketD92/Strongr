@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { AngularFireModule, FirebaseApp } from '@angular/fire';
@@ -26,7 +26,9 @@ export class SettingsPage implements OnInit{
       this.GymAccess = setting.GymAccess
     });
   }
-  
+
+  // TODO - On navigate away, auto-save settings. Else it appears settings are saved without hitting save
+
   saveChanges(){
     this.currentSettings = {
       GymAccess: this.GymAccess,
