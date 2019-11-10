@@ -23,7 +23,7 @@ export class SettingsPage implements OnInit{
   ngOnInit() {
     this.settingsService.getUserSettings(this.afAuth.auth.currentUser.email).subscribe(setting => {
       this.currentSettings = setting,
-      this.GymAccess = setting.GymAccess
+      this.GymAccess = this.currentSettings.GymAccess
     });
   }
 

@@ -12,8 +12,7 @@ export interface UserSettings {
   Weight: number,
   WeightUnits: number,
   Height: number,
-  HeightUnits: number,
-  
+  HeightUnits: number  
 }
 
 @Injectable({
@@ -47,16 +46,5 @@ export class SettingsService {
 
   setUserSettings(id: string, userSettings: UserSettings): Promise<void> {
     return this.settingsCollection.doc(id).set(userSettings);
-  }
- 
-  
-  // To be moved to its own service
-  getWorkoutSession(id: string): Observable<UserSettings> {
-    return this.settingsCollection.doc<UserSettings>(id).valueChanges().pipe(
-      take(1),
-      map(userSettings => {
-        return userSettings
-      })
-    );
   }
 }
