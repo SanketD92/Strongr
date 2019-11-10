@@ -49,9 +49,14 @@ export class SettingsService {
     return this.settingsCollection.doc(id).set(userSettings);
   }
  
-  /* Not used yet. doc.set overwrites data anyways
-  updateUserSettings(id: string, userSettings: UserSettings): Promise<void> {
-    return this.settingsCollection.doc(id).update({ toggle: userSettings.toggle });
+  
+  // To be moved to its own service
+  getWorkoutSession(id: string): Observable<UserSettings> {
+    return this.settingsCollection.doc<UserSettings>(id).valueChanges().pipe(
+      take(1),
+      map(userSettings => {
+        return userSettings
+      })
+    );
   }
-  */
 }
