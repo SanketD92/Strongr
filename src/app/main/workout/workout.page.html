@@ -1,10 +1,14 @@
 <ion-content no-bounce>
+    <ion-card class="Workout">
+        <ion-card-header>
+          <ion-card-title>Workout</ion-card-title>
+        </ion-card-header>
+      </ion-card>
   <ion-slides pager="true">
     <ion-slide *ngFor="let slide of slides">
       <img [src]="slide.image" class="slide-image" />
-      <h2 class="slide-title" [innerHTML]="slide.title"></h2>
-      <p [innerHTML]="slide.description"></p>
     </ion-slide>
+    <!--This is the review slide (Need to fix - This image overlays a bit on slide 3)-->
     <ion-slide>
       <img src="assets/test.jpg" class="slide-image" />
       <button ion-button icon-end large clear (click)="onReview()">Review<ion-icon name="arrow-forward"></ion-icon>

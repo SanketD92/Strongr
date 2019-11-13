@@ -79,17 +79,17 @@ export class WorkoutPage implements OnInit {
       {
         title: "Slide 1",
         description: "Slide 1 desc",
-        image: 'assets/test.jpg',
+        image: 'assets/Back/dumbbellrow.gif',
       },
       {
         title: "Slide 2",
         description: "Slide 2 desc",
-        image: 'assets/test.jpg',
+        image: 'assets/Back/latpulldown.gif',
       },
       {
         title: "Slide 3",
         description: "Slide 3 desc",
-        image: 'assets/test.jpg',
+        image: 'assets/Back/pullup.gif',
       }
     ];
   }
